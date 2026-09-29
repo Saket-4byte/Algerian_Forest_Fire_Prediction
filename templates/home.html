@@ -1,0 +1,28 @@
+<html>
+<body>
+    <div class="login">
+       <h1>FWI Prediction</h1>
+   
+        <!-- Main Input For Receiving Query to our ML -->
+        <!--url_for is the function that is used to call the predict_datapoint def in application.py, this method is post  So because of this method is equal to post my application. When we write request dot method, it will be able to retrieve whether it is a post or a get and then this are all the 9 i/p fields-->
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+         <input type="text" name="Temperature" placeholder="Temperature" required="required" /><br>
+           <input type="text" name="RH" placeholder="RH" required="required" /><br>
+           <input type="text" name="Ws" placeholder="Ws" required="required" /><br>
+           <input type="text" name="Rain" placeholder="Rain" required="required" /><br>
+           <input type="text" name="FFMC" placeholder="FFMC" required="required" /><br>
+           <input type="text" name="DMC" placeholder="DMC" required="required" /><br>
+           <input type="text" name="ISI" placeholder="ISI" required="required" /><br>
+           <input type="text" name="Classes" placeholder="Classes" required="required" /><br>
+           <input type="text" name="Region" placeholder="Region" required="required" /><br>
+   
+   
+            <!--finally I'll be having a submit button which will be doing the prediction of this entire form.-->
+           <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       </form>
+    <h2>
+        <!--and finally the prediction is some result, this result is the prediction that will be doing from the model-->
+       THE FWI prediction is {{results}}
+    </h2>
+   <body>
+</html>
